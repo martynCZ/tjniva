@@ -57,7 +57,7 @@ app.get('/scrape', async (req, res) => {
 });
 
 // For Firebase/GitHub Hosting, do not specify IP_ADDRESS or PORT
-const PORT = process.env.PORT || 5200;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
