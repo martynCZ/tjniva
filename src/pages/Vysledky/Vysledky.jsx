@@ -14,7 +14,7 @@ const Vysledky = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('/scrape');
+                const response = await axios.get('http://192.168.0.139:5173/scrape');
                 setMatchData(response.data.zapasy);
                 setLoading(false);
             } catch (error) {
