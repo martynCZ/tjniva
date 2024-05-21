@@ -1,9 +1,9 @@
-import express from 'express';
-import puppeteer from 'puppeteer';
-import cors from 'cors';
+const functions = require('firebase-functions');
+const express = require('express');
+const puppeteer = require('puppeteer');
+const cors = require('cors');
 
 const app = express();
-
 app.use(cors());
 
 // Define an endpoint to scrape data
@@ -56,8 +56,5 @@ app.get('/scrape', async (req, res) => {
   }
 });
 
-// For Firebase/GitHub Hosting, do not specify IP_ADDRESS or PORT
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// Export the Express app as a Firebase Function
+exports.app = functions.https.onRequest(app);
